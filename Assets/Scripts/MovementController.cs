@@ -86,12 +86,21 @@ public class MovementController : MonoBehaviour
             rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
         }
     }
-    
+
 
     private void PlayerRotation(float direction)
     {
-        playerRotation.flipX = direction < 0;
-        firePoint.localPosition = new Vector2(direction > 0 ? 0.1f : -0.1f, firePoint.localPosition.y);
+        if (PlayerUpheaval.IsGravity)
+        {
+            firePoint.localPosition = new Vector2(direction > 0 ? 0.1f : -0.1f, firePoint.localPosition.y);
+            playerRotation.flipX = direction < 0;
+        }
+        else
+        {
+            firePoint.localPosition = new Vector2(direction > 0 ? -0.1f : 0.1f, firePoint.localPosition.y);
+            playerRotation.flipX = direction > 0;
+        }
+        
     }
 
     public void SetCanMove(bool value)

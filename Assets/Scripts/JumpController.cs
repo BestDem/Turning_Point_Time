@@ -17,6 +17,12 @@ public class JumpController : MonoBehaviour
     public void Jump()
     {
         anim.SetTrigger("isJump");
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
+        if (PlayerUpheaval.IsGravity == true)
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        else
+        {
+            rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
+        }
     }
 }

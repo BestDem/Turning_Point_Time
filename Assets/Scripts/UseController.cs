@@ -3,32 +3,32 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UseController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     private float timer;
 
-    //private void CannonShot()
-
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Левая кнопка мыши
-        {
+        if (Input.GetMouseButtonDown(0))
             Shoot();
-        }
-        //var ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        //Ray ray = new Ray(transform.position, Vector3.left);
-
-        //RaycastHit hit;
-        // if (Physics.Raycast(ray, out hit, 10f))
-        //{
-        //    Debug.Log(hit.transform.position);
-        //}
     }
 
-    private void Shoot()
+    //private void CannonShot()
+
+    //var ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+    //Ray ray = new Ray(transform.position, Vector3.left);
+
+    //RaycastHit hit;
+    // if (Physics.Raycast(ray, out hit, 10f))
+    //{
+    //    Debug.Log(hit.transform.position);
+    //}
+
+    public void Shoot()
     {
         animator.SetTrigger("isAttack");
 

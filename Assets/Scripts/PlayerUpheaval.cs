@@ -7,14 +7,14 @@ public class PlayerUpheaval : MonoBehaviour
     [SerializeField] private float gravity;
     private Rigidbody2D player;
     private Transform transform;
+    private static bool isGravity = true;
     private float gravity1;
-    private MovementController movement;
+    public static bool IsGravity => isGravity;
 
     private void Start()
     {
         player = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
-        movement = GetComponent<MovementController>();
 
         gravity1 = gravity;
     }
@@ -31,6 +31,7 @@ public class PlayerUpheaval : MonoBehaviour
     {
         player.gravityScale = gravity1 * -1;
         gravity1 = player.gravityScale;
+        isGravity = !isGravity;
 
         Vector3 rotate = transform.eulerAngles;
         rotate.z += 180;

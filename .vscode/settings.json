@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Turning Point - Time.sln"
+    "dotnet.defaultSolution": "Turning_Point_Time.sln"
 }
