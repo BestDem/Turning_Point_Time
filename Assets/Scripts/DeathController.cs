@@ -5,16 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class DeathController : MonoBehaviour
 {
+    [SerializeField] private CheackPointController cheackPoint;
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            cheackPoint.SpawnPlayer();
 
     }
     
     public void OnButtonRestart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        cheackPoint.SpawnPlayer();
     }
 
     public void OnButtonNext()

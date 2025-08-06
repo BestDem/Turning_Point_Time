@@ -4,30 +4,27 @@ using UnityEngine;
 
 public class AnimatorController : MonoBehaviour
 {
+    public static AnimatorController singltonAnim { get; private set; }
     private Animator animator;
 
+    private void Awake()
+    {
+        singltonAnim = this;
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-
-    public void PlayAnimationsSequentially(List<string> animationNames)
+    public void PlayAnimations(string animationNames, bool isAnimation)
     {
-        StartCoroutine(PlayAnimations(animationNames));
-    }
 
-    private IEnumerator PlayAnimations(List<string> animationNames)
-    {
-        foreach (string animName in animationNames)
-        {
-            animator.Play(animName);
-            // Ждём, пока анимация не закончится
-            yield return new WaitUntil(() =>
-                animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f &&
-                !animator.IsInTransition(0)
-            );
-        }
+        if (animationNames == "isAttack")
+            animator.SetTrigger("isAttack");
+        if (animationNames == "isJump")
+            animator.SetTrigger("isJump");
+
+        animator.SetBool(animationNames, isAnimation);
     }
 
     // Например, из другого скрипта:

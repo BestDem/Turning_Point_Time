@@ -7,7 +7,12 @@ public class NextLevelTrigger : MonoBehaviour
 {
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LayerIndex(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 }

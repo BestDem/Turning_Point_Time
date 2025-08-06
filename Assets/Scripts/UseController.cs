@@ -30,7 +30,7 @@ public class UseController : MonoBehaviour
 
     public void Shoot()
     {
-        animator.SetTrigger("isAttack");
+        AnimatorController.singltonAnim.PlayAnimations("isAttack", true);
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 direction = (mousePos - transform.position).normalized;

@@ -8,33 +8,25 @@ using UnityEngine.UIElements;
 
 public class MovementController : MonoBehaviour
 {
-    public static MovementController Instance;
 
     [Header("Movement vars")]
-    [SerializeField] private Animator anim;
+    [SerializeField] private Transform firePoint;
     [SerializeField] private float speed;
-    [SerializeField] private bool isGrounded = false; 
-    [SerializeField] private bool canMove = true;
+    [SerializeField] private bool isGrounded = false;
     [SerializeField] private float acceleration = 10f;
+    private SpriteRenderer playerRotation;
     private float currentSpeed = 0f;
 
     [Header("Settings")]
-    //[SerializeField] private Animator animator; 
-    [SerializeField] private SpriteRenderer playerRotation;
     [SerializeField] private float jumpOffSet = 0.1f;
-    [SerializeField] private AnimationCurve curve;
     [SerializeField] private Transform groundColliderTransform;
-    //[SerializeField] private Transform firePoint;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float groundCheckInterval = 0.1f; // Интервал проверки в секундах
-    private JumpController jumpController;
     private float nextGroundCheckTime;
+    private bool canMove = true;
     private Rigidbody2D rb;
-    private Transform player;
-    [SerializeField] private Transform firePoint;
-
-    public bool IsLookRight => !playerRotation.flipX;
     public bool IsGrounded => isGrounded;
+    public bool CanMove => canMove;
 
     private void FixedUpdate()
     {
@@ -45,39 +37,13 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    void Awake()
+    void Start()
     {
-        Instance = this;
-        jumpController = GetComponent<JumpController>();
-        player = GetComponent<Transform>();
+        playerRotation = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Move(float direction, bool isJumpButtonPress)
-    {
-        if (!canMove) return;
-
-        if (isJumpButtonPress & isGrounded)
-        {
-            jumpController.Jump();
-        }
-
-        if (Mathf.Abs(direction) > 0.01f)
-        {
-            PlayerRotation(direction);
-            HorizontalMovement(direction);
-            {
-                anim.SetBool("isRunning", true);
-            }
-
-        }
-        else
-        {
-            anim.SetBool("isRunning", false);
-        }
-    }
-
-    private void HorizontalMovement(float direction)
+    public void HorizontalMovement(float direction)
     {
         if (isGrounded)
         {
@@ -86,9 +52,7 @@ public class MovementController : MonoBehaviour
             rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
         }
     }
-
-
-    private void PlayerRotation(float direction)
+    public void PlayerRotation(float direction)
     {
         if (PlayerUpheaval.IsGravity)
         {
@@ -100,11 +64,11 @@ public class MovementController : MonoBehaviour
             firePoint.localPosition = new Vector2(direction > 0 ? -0.1f : 0.1f, firePoint.localPosition.y);
             playerRotation.flipX = direction > 0;
         }
-        
     }
-
+    
     public void SetCanMove(bool value)
     {
         canMove = value;
     }
+    
 }

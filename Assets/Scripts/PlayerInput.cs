@@ -6,14 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(MovementController))]
 public class PlayerInput : MonoBehaviour
 {
-    private MovementController playerMovement;
-    //private Shooter shooter;
-    
-    private void Awake()
-    {
-        playerMovement = GetComponent<MovementController>();
-        //shooter = GetComponent<Shooter>();
-    }
+    [SerializeField] private PlayerController playerController;
 
     private void Update()
     {
@@ -21,7 +14,8 @@ public class PlayerInput : MonoBehaviour
         bool isJumpButtonPress = Input.GetButtonDown("Jump");
         bool isFireButtonPress = Input.GetButtonDown("Fire1");
 
-        playerMovement.Move(horizontalDirection, isJumpButtonPress);
+        playerController.Move(horizontalDirection, isJumpButtonPress, isFireButtonPress);
+        //playerInput.Move(horizontalDirection, isJumpButtonPress);
         //shooter.FireButtonDown(isFireButtonPress);
 
     }
