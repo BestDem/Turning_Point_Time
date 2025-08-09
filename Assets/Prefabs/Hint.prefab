@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6811927220290199425}
   - component: {fileID: 360046001816656251}
   - component: {fileID: 4889350949572788313}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d0d99cee5109c4792f592f56e80854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  soundManager: {fileID: 0}
   gameObject: {fileID: 0}
 --- !u!61 &4889350949572788313
 BoxCollider2D:

@@ -9,16 +9,21 @@ public class Health : MonoBehaviour
     [SerializeField] private float maxHealth;
     [SerializeField] private UnityEvent EventDeath;
     private float currentHealth;
+    private MovementController movementController;
+    private SoundManager soundManager;
     private bool isDeath => currentHealth <= 0;
 
     private void Start()
     {
+        soundManager = GetComponent<SoundManager>();
+        movementController = GetComponent<MovementController>();
         currentHealth = maxHealth;
         healthBar.GetDamageHealthBar(currentHealth, maxHealth);
     }
 
     public void SpawnPlayer()
     {
+        soundManager.PlaySongByIndex(3);
         currentHealth = maxHealth;
         healthBar.GetDamageHealthBar(currentHealth, maxHealth);
     }
@@ -38,7 +43,11 @@ public class Health : MonoBehaviour
         Debug.Log(currentHealth + "осталось хп");
 
         if (isDeath)
+        {
+            movementController.SetCanMove(false);
+            soundManager.PlaySongByIndex(3);
             EventDeath?.Invoke();
+        }
 
     }
 }

@@ -21,7 +21,7 @@ public class PlayerUpheaval : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Upheaval();
         }
@@ -36,5 +36,16 @@ public class PlayerUpheaval : MonoBehaviour
         Vector3 rotate = transform.eulerAngles;
         rotate.z += 180;
         transform.rotation = Quaternion.Euler(rotate);
+    }
+
+    public void SpawnPlayerGravity()
+    {
+        if (isGravity == false)
+            Upheaval();
+    }
+
+    public void UpHeavalButton()
+    {
+        Upheaval();
     }
 }

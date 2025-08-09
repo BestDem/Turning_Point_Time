@@ -7,16 +7,18 @@ public class JumpController : MonoBehaviour
     [SerializeField] private float jumpForce;
     private Rigidbody2D rb;
     private Animator anim;
+    private SoundManager soundManager;
 
     private void Start()
     {
+        soundManager = GetComponent<SoundManager>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     public void Jump()
     {
-        SoundManager.singltonSound.PlaySongByIndex(1);
+        soundManager.PlaySongByIndex(1);
         AnimatorController.singltonAnim.PlayAnimations("isJump", true);
 
         if (PlayerUpheaval.IsGravity == true)

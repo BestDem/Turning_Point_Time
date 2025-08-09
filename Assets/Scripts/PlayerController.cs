@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private MovementController movementController;
     [SerializeField] private JumpController jumpController;
 
-    public void Move(float direction, bool isJumpButtonPress, bool isFireButtonPress)
+    public void Move(float direction, bool isJumpButtonPress)
     {
         if (movementController.CanMove == false) return;
 

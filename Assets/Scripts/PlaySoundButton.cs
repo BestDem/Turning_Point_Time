@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlaySoundButton : MonoBehaviour
 {
+    [SerializeField] private SoundManager soundManager;
     [SerializeField] private int index;
     public void PlaySoundIndex()
     {
-        SoundManager.singltonSound.PlaySongByIndex(index);
+        soundManager.PlaySongByIndex(index);
     }
 }

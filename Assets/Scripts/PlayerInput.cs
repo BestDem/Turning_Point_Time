@@ -12,9 +12,8 @@ public class PlayerInput : MonoBehaviour
     {
         float horizontalDirection = Input.GetAxis("Horizontal");
         bool isJumpButtonPress = Input.GetButtonDown("Jump");
-        bool isFireButtonPress = Input.GetButtonDown("Fire1");
 
-        playerController.Move(horizontalDirection, isJumpButtonPress, isFireButtonPress);
+        playerController.Move(horizontalDirection, isJumpButtonPress);
         //playerInput.Move(horizontalDirection, isJumpButtonPress);
         //shooter.FireButtonDown(isFireButtonPress);
 

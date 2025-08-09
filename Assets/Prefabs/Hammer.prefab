@@ -194,7 +194,7 @@ AudioSource:
   MinDistance: 1.6260091
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -293,6 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a50e7c3aed2544d8de214c82f8e0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 3426185868733017479}
   index: 0
 --- !u!70 &7573906460472480829
 CapsuleCollider2D:

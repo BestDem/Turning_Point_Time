@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager singltonSound { get; private set; }
     [SerializeField] private MusicController musicController;
     [SerializeField] private AudioSource audioSource;
-
-    private void Awake()
-    {
-        singltonSound = this;
-    }
 
     private void UpdateCurrentClip()
     {
