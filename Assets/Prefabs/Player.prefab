@@ -201,12 +201,23 @@ MonoBehaviour:
   speed: 2
   isGrounded: 0
   acceleration: 10
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   jumpOffSet: 0.05
   groundColliderTransform: {fileID: 3837493405970762074}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   groundCheckInterval: 0.1
+  leftWallCheck: {fileID: 0}
+  rightWallCheck: {fileID: 0}
+  canMoveFool: 0
+  canMoveRight: 0
+  canMoveLeft: 0
 --- !u!114 &9046973661458295247
 MonoBehaviour:
   m_ObjectHideFlags: 0

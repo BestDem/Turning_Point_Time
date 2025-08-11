@@ -5,14 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class NextLevelTrigger : MonoBehaviour
 {
+    [SerializeField] private int nextLevelIndex = 1; // Индекс следующего уровня
+    
+    private void Awake()
+    {
+        // Убираем неправильную логику из Awake
+    }
+    
     public void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        {
+            // Сохраняем текущий уровень как последний пройденный
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            PlayerPrefs.SetInt("LastCompletedLevel", currentSceneIndex);
+            
+            // Сохраняем следующий уровень как текущий
+            PlayerPrefs.SetInt("CurrentLevel", nextLevelIndex);
+            
+            // Загружаем следующий уровень
+            SceneManager.LoadScene(nextLevelIndex);
+        }
     }
 
-    public void LayerIndex(int index)
+    public void LoadLevelByIndex(int index)
     {
+        // Сохраняем текущий уровень
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("LastCompletedLevel", currentSceneIndex);
+        PlayerPrefs.SetInt("CurrentLevel", index);
+        
         SceneManager.LoadScene(index);
     }
 }

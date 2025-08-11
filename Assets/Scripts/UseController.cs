@@ -15,11 +15,12 @@ public class UseController : MonoBehaviour
 
     private void Update()
     {
+
         // Обработка касаний для мобильных устройств
         if (Input.touchCount > 0)
         {
             Touch firstTouch = Input.GetTouch(0);
-            if (firstTouch.phase == TouchPhase.Began)
+            if (firstTouch.phase == UnityEngine.TouchPhase.Began)
             {
                 Shoot(firstTouch.position);
             }
@@ -30,18 +31,6 @@ public class UseController : MonoBehaviour
             Shoot(Input.mousePosition);
         }
     }
-
-    //private void CannonShot()
-
-    //var ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-    //Ray ray = new Ray(transform.position, Vector3.left);
-
-    //RaycastHit hit;
-    // if (Physics.Raycast(ray, out hit, 10f))
-    //{
-    //    Debug.Log(hit.transform.position);
-    //}
 
     public void Shoot(Vector2 screenPosition)
     {
@@ -69,39 +58,5 @@ public class UseController : MonoBehaviour
         // Для визуализации луча в редакторе
         //Debug.DrawRay(transform.position, direction * 10f, Color.red, 1f);
 
-    }
-    
-    /// <summary>
-    /// Получает позицию первого касания на экране
-    /// </summary>
-    /// <returns>Позиция касания в экранных координатах или Vector2.zero если касаний нет</returns>
-    public Vector2 GetFirstTouchPosition()
-    {
-        if (Input.touchCount > 0)
-        {
-            Touch firstTouch = Input.GetTouch(0);
-            firstTouchPosition = firstTouch.position;
-            
-            // Дополнительная информация о касании (для отладки)
-            Debug.Log($"Позиция касания: {firstTouch.position}");
-            Debug.Log($"Фаза касания: {firstTouch.phase}");
-            Debug.Log($"ID пальца: {firstTouch.fingerId}");
-            
-            return firstTouch.position;
-        }
-        
-        return Vector2.zero;
-    }
-    
-    /// <summary>
-    /// Преобразует позицию экрана в мировые координаты
-    /// </summary>
-    /// <param name="screenPosition">Позиция на экране</param>
-    /// <returns>Позиция в мировых координатах</returns>
-    public Vector3 ScreenToWorldPosition(Vector2 screenPosition)
-    {
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(screenPosition.x, screenPosition.y, Camera.main.nearClipPlane));
-        worldPosition.z = 0; // Для 2D игр обнуляем Z координату
-        return worldPosition;
     }
 }

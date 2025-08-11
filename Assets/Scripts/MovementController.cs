@@ -45,13 +45,11 @@ public class MovementController : MonoBehaviour
 
     public void HorizontalMovement(float direction)
     {
-        if (isGrounded)
-        {
-            float targetSpeed = direction * speed;
-            currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.fixedDeltaTime);
-            rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
-        }
+        float targetSpeed = direction * speed;
+        currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.fixedDeltaTime);
+        rb.velocity = new Vector2(currentSpeed, rb.velocity.y);
     }
+
     public void PlayerRotation(float direction)
     {
         if (PlayerUpheaval.IsGravity)
