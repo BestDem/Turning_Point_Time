@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private CheackWallsController cheackWalls;
     [SerializeField] private MovementController movementController;
     [SerializeField] private JumpController jumpController;
 
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
         if (Mathf.Abs(direction) > 0.01f)
         {
-            movementController.HorizontalMovement(direction);
+            cheackWalls.MovementDir(direction);
             movementController.PlayerRotation(direction);
             {
                 AnimatorController.singltonAnim.PlayAnimations("isRunning", true);

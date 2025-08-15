@@ -30,6 +30,7 @@ public class DeathController : MonoBehaviour
     }
     public void OnButtonRestartLevel()
     {
+        playerUpheaval.SpawnPlayerGravity();
         cheackPoint.ResetPoints();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

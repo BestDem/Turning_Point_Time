@@ -6,11 +6,7 @@ using UnityEngine.SceneManagement;
 public class NextLevelTrigger : MonoBehaviour
 {
     [SerializeField] private int nextLevelIndex = 1; // Индекс следующего уровня
-    
-    private void Awake()
-    {
-        // Убираем неправильную логику из Awake
-    }
+
     
     public void OnTriggerEnter2D(Collider2D collider)
     {
