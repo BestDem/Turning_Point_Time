@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject menu;
     public static GameManager Instance { get; private set; }
     
     [Header("Настройки загрузки")]
@@ -17,13 +16,11 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
 
             // Загружаем последний сохраненный уровень при первом запуске
             if (loadLastSavedLevel)
             {
                 LoadLastSavedLevel();
-                menu.SetActive(true);
             }
         }
         else

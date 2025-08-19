@@ -7,7 +7,6 @@ public class PlayerTelInput : MonoBehaviour
     [SerializeField] private PlayerController controller;
     private int directionPlayer;
     private bool isJump = false;
-    private bool isChangeGravity = false;
 
     private void FixedUpdate()
     {

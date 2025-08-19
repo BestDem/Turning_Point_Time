@@ -16,7 +16,7 @@ public class NextLevelTrigger : MonoBehaviour
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             PlayerPrefs.SetInt("LastCompletedLevel", currentSceneIndex);
             
-            // Сохраняем следующий уровень как текущий
+            PlayerPrefs.SetInt("CheackPoint", 0);
             PlayerPrefs.SetInt("CurrentLevel", nextLevelIndex);
             
             // Загружаем следующий уровень

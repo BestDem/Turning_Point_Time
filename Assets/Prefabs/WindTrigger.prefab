@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5652937493187843093}
-  - component: {fileID: 4357731284959687468}
   - component: {fileID: 2783900868728348074}
+  - component: {fileID: 8230607007252332588}
   m_Layer: 0
   m_Name: WindTrigger
   m_TagString: Untagged
@@ -33,20 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4357731284959687468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2059911390686549510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 979c4ee753f47424798bf303b8b668ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  example: {x: 0, y: 1}
-  powerWind: 0.4
 --- !u!61 &2783900868728348074
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77,7 +63,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 1.4446244, y: -1.35272}
   m_SpriteTilingProperty:
@@ -92,3 +78,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0670671, y: 1.8383288}
   m_EdgeRadius: 0
+--- !u!249 &8230607007252332588
+AreaEffector2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059911390686549510}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 512
+  m_UseGlobalAngle: 0
+  m_ForceAngle: 0
+  m_ForceMagnitude: -93.9
+  m_ForceVariation: 3.27
+  m_ForceTarget: 1
+  m_Drag: 0
+  m_AngularDrag: 0

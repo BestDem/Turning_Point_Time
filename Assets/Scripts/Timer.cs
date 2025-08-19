@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     [SerializeField] private Image gas;
+    [SerializeField] private GameObject gasPanel;
     [SerializeField] private Text textTimer;
     [SerializeField] private Health health;
     [SerializeField] private float timeMax;
@@ -28,6 +29,7 @@ public class Timer : MonoBehaviour
 
             if (currenttime < timeToGas)
             {
+                gasPanel.SetActive(true);
                 float alpha = Mathf.Lerp(0.3f, 0f, currenttime / timeToGas);
                 Color newColor = gas.color;
                 newColor.a = alpha;
@@ -48,6 +50,7 @@ public class Timer : MonoBehaviour
 
     public void ResetTimer()
     {
+        gasPanel.SetActive(false);
         currenttime = timeMax;
     }
 }

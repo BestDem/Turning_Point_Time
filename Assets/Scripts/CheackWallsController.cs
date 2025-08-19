@@ -31,8 +31,8 @@ public class CheackWallsController : MonoBehaviour
         private bool IsWallOnLeft()
     {
         int groundLayer = LayerMask.GetMask("Ground");
-        RaycastHit2D hitLeft = Physics2D.Raycast(leftWallCheck.position, Vector2.left, 0.1f, groundLayer);
-        RaycastHit2D hitLeftUp = Physics2D.Raycast(leftWallCheckUp.position, Vector2.left, 0.1f, groundLayer);
+        RaycastHit2D hitLeft = Physics2D.Raycast(leftWallCheck.position, Vector2.left, 0.15f, groundLayer);
+        RaycastHit2D hitLeftUp = Physics2D.Raycast(leftWallCheckUp.position, Vector2.left, 0.15f, groundLayer);
         if (hitLeft.collider != null || hitLeftUp.collider != null)
             return true;
         else
@@ -43,8 +43,8 @@ public class CheackWallsController : MonoBehaviour
     private bool IsWallOnRight()
     {
         int groundLayer = LayerMask.GetMask("Ground");
-        RaycastHit2D hitRigth = Physics2D.Raycast(rightWallCheck.position, Vector2.right, 0.1f, groundLayer);
-        RaycastHit2D hitRigthUp = Physics2D.Raycast(rightWallCheckUp.position, Vector2.right, 0.1f, groundLayer);
+        RaycastHit2D hitRigth = Physics2D.Raycast(rightWallCheck.position, Vector2.right, 0.15f, groundLayer);
+        RaycastHit2D hitRigthUp = Physics2D.Raycast(rightWallCheckUp.position, Vector2.right, 0.15f, groundLayer);
         if (hitRigth.collider != null || hitRigthUp.collider != null)
             return true;
         else

@@ -40,11 +40,9 @@ public class Health : MonoBehaviour
         currentHealth -= Mathf.Abs(damage);
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         healthBar.GetDamageHealthBar(currentHealth, maxHealth);
-        Debug.Log(currentHealth + "осталось хп");
 
         if (isDeath)
         {
-            movementController.SetCanMove(false);
             soundManager.PlaySongByIndex(3);
             EventDeath?.Invoke();
         }

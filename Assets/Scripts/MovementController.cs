@@ -10,7 +10,9 @@ public class MovementController : MonoBehaviour
 {
 
     [Header("Movement vars")]
+    [SerializeField] private AnimatorBullet animatorBullet;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private Transform fireAnim;
     [SerializeField] private float speed;
     [SerializeField] private bool isGrounded = false;
     [SerializeField] private float acceleration = 10f;
@@ -21,6 +23,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float jumpOffSet = 0.1f;
     [SerializeField] private Transform groundColliderTransform;
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private LayerMask boxGroundMask;
     [SerializeField] private float groundCheckInterval = 0.1f; // Интервал проверки в секундах
     private float nextGroundCheckTime;
     private bool canMove = true;
@@ -33,8 +36,12 @@ public class MovementController : MonoBehaviour
         if (Time.time >= nextGroundCheckTime)
         {
             isGrounded = Physics2D.OverlapCircle(groundColliderTransform.position, jumpOffSet, groundMask);
+            //isGrounded = Physics2D.OverlapCircle(groundColliderTransform.position, jumpOffSet, boxGroundMask);
             nextGroundCheckTime = Time.time + groundCheckInterval;
         }
+        float velocityY = rb.velocity.y;
+        velocityY = Mathf.Clamp(velocityY, -10, 10);
+        rb.velocity = new Vector2(rb.velocity.x, velocityY);
     }
 
     void Start()
@@ -55,11 +62,15 @@ public class MovementController : MonoBehaviour
         if (PlayerUpheaval.IsGravity)
         {
             firePoint.localPosition = new Vector2(direction > 0 ? 0.1f : -0.1f, firePoint.localPosition.y);
+            fireAnim.localPosition = new Vector2(direction > 0 ? 0.17f : -0.17f, fireAnim.localPosition.y);
+            animatorBullet.FlipAnimBullet(direction < 0);
             playerRotation.flipX = direction < 0;
         }
         else
         {
             firePoint.localPosition = new Vector2(direction > 0 ? -0.1f : 0.1f, firePoint.localPosition.y);
+            fireAnim.localPosition = new Vector2(direction > 0 ? -0.17f : 0.17f, fireAnim.localPosition.y);
+            animatorBullet.FlipAnimBullet(direction > 0);
             playerRotation.flipX = direction > 0;
         }
     }

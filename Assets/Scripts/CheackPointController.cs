@@ -12,13 +12,8 @@ public class CheackPointController : MonoBehaviour
 
     private void Awake()
     {
-        if (checkPoints.Count > 0)
-        {
-            activePoint = PlayerPrefs.GetInt("CheackPoint", 0);
-
-            camera.transform.position = new Vector3(checkPoints[activePoint].transform.position.x, checkPoints[activePoint].transform.position.y, -1);
-            player.transform.position = checkPoints[activePoint].transform.position;
-        }
+        PlayerPrefs.SetInt("CheackPoint", 0);
+        player.transform.position = checkPoints[activePoint].transform.position;
     }
 
     public void SpawnPlayer()
