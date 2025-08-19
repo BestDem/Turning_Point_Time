@@ -6,34 +6,15 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    
-    [Header("Настройки загрузки")]
-    [SerializeField] private bool loadLastSavedLevel = true;
-    [SerializeField] private int defaultLevelIndex = 0; // Индекс первого уровня (Level_1)
-    
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
 
-            // Загружаем последний сохраненный уровень при первом запуске
-            if (loadLastSavedLevel)
-            {
-                LoadLastSavedLevel();
-            }
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    [Header("Настройки загрузки")]
+    [SerializeField] private int defaultLevelIndex = 0; // Индекс первого уровня (Level_1)
 
     public void LoadLastSavedLevel()
     {
         // Получаем индекс последнего сохраненного уровня
         int lastLevel = PlayerPrefs.GetInt("CurrentLevel", defaultLevelIndex);
-        
+
         // Проверяем, что индекс уровня валиден
         if (lastLevel >= 0 && lastLevel < SceneManager.sceneCountInBuildSettings)
         {
@@ -59,12 +40,12 @@ public class GameManager : MonoBehaviour
 
     public void ResetProgress()
     {
-        PlayerPrefs.SetInt("CurrentLevel" , 0);
+        PlayerPrefs.SetInt("CurrentLevel", 0);
         PlayerPrefs.DeleteKey("LastCompletedLevel");
         PlayerPrefs.SetFloat("CheackPoint", 0);
         PlayerPrefs.Save();
-        
-        SceneManager.LoadScene(0);
+
+        SceneManager.LoadScene(1);
     }
 
     public void LoadLevel(int levelIndex)
@@ -78,5 +59,10 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning($"Попытка загрузить несуществующий уровень: {levelIndex}");
         }
+    }
+    
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

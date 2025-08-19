@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DeathController : MonoBehaviour
 {
-    [SerializeField] private Health health;
+    //[SerializeField] private Health health;
     [SerializeField] private MovementController movementController;
     [SerializeField] private PlayerUpheaval playerUpheaval;
     [SerializeField] private CheackPointController cheackPoint;
@@ -14,7 +14,7 @@ public class DeathController : MonoBehaviour
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            health.SpawnPlayer();
+            //health.SpawnPlayer();
             cheackPoint.SpawnPlayer();
             playerUpheaval.SpawnPlayerGravity();
         }
@@ -23,7 +23,7 @@ public class DeathController : MonoBehaviour
 
     public void OnButtonRestart()
     {
-        health.SpawnPlayer();
+        //health.SpawnPlayer();
         movementController.SetCanMove(true);
         playerUpheaval.SpawnPlayerGravity();
         cheackPoint.SpawnPlayer();
@@ -39,10 +39,5 @@ public class DeathController : MonoBehaviour
     {
         cheackPoint.ResetPoints();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
     }
 }

@@ -10,7 +10,7 @@ public class MovementController : MonoBehaviour
 {
 
     [Header("Movement vars")]
-    [SerializeField] private AnimatorBullet animatorBullet;
+    [SerializeField] private AnimatorObjects animatorBullet;
     [SerializeField] private Transform firePoint;
     [SerializeField] private Transform fireAnim;
     [SerializeField] private float speed;
@@ -23,7 +23,6 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float jumpOffSet = 0.1f;
     [SerializeField] private Transform groundColliderTransform;
     [SerializeField] private LayerMask groundMask;
-    [SerializeField] private LayerMask boxGroundMask;
     [SerializeField] private float groundCheckInterval = 0.1f; // Интервал проверки в секундах
     private float nextGroundCheckTime;
     private bool canMove = true;
@@ -36,7 +35,6 @@ public class MovementController : MonoBehaviour
         if (Time.time >= nextGroundCheckTime)
         {
             isGrounded = Physics2D.OverlapCircle(groundColliderTransform.position, jumpOffSet, groundMask);
-            //isGrounded = Physics2D.OverlapCircle(groundColliderTransform.position, jumpOffSet, boxGroundMask);
             nextGroundCheckTime = Time.time + groundCheckInterval;
         }
         float velocityY = rb.velocity.y;

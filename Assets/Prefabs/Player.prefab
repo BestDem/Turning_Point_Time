@@ -47,99 +47,6 @@ MonoBehaviour:
   soundManager: {fileID: 6673100226334618122}
   animatorBullet: {fileID: 8413780284335128521}
   playerUpheaval: {fileID: 8842335242647068337}
---- !u!1 &1423613706109564979
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1118073823012611965}
-  m_Layer: 0
-  m_Name: RightWallCheackUp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1118073823012611965
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423613706109564979}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07, y: 0.117, z: -0.24150838}
-  m_LocalScale: {x: 0.84119856, y: 0.84119856, z: 0.84119856}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7841925043301926699}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2650552017404573075
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1414579443241766424}
-  m_Layer: 0
-  m_Name: LeftWallCheack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1414579443241766424
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2650552017404573075}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.105, y: -0.136, z: -0.24150838}
-  m_LocalScale: {x: 0.84119856, y: 0.84119856, z: 0.84119856}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7841925043301926699}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2893710798125415687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8676556778608363497}
-  m_Layer: 0
-  m_Name: RightWallCheack (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8676556778608363497
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2893710798125415687}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.101, y: -0.134, z: -0.24150838}
-  m_LocalScale: {x: 0.84119856, y: 0.84119856, z: 0.84119856}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7841925043301926699}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4222026147542101005
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +190,7 @@ GameObject:
   - component: {fileID: 1114202404386916557}
   - component: {fileID: 2153071790267032809}
   - component: {fileID: 6673100226334618122}
-  - component: {fileID: 5100891087575742596}
+  - component: {fileID: 8634444232663985465}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -307,10 +214,6 @@ Transform:
   - {fileID: 3837493405970762074}
   - {fileID: 2304049308654132089}
   - {fileID: 905234938490438384}
-  - {fileID: 1414579443241766424}
-  - {fileID: 3794563197150744857}
-  - {fileID: 8676556778608363497}
-  - {fileID: 1118073823012611965}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4782132517920682706
@@ -428,9 +331,6 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  boxGroundMask:
-    serializedVersion: 2
-    m_Bits: 1024
   groundCheckInterval: 0.1
 --- !u!114 &9046973661458295247
 MonoBehaviour:
@@ -505,7 +405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b29a21c8b6b02f4cba71020bd7908be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cheackWalls: {fileID: 5100891087575742596}
   movementController: {fileID: 4796892667173051321}
   jumpController: {fileID: 2219131318497625604}
 --- !u!114 &4808705346750104676
@@ -710,8 +609,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000040111473, y: 0}
-  m_Size: {x: 0.16711482, y: 0.29}
+  m_Offset: {x: -0.00853151, y: -0.018979847}
+  m_Size: {x: 0.09927951, y: 0.28683636}
   m_Direction: 0
 --- !u!114 &6673100226334618122
 MonoBehaviour:
@@ -727,22 +626,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicController: {fileID: 11400000, guid: 12d47aaf02d0e30428c1ba0c8dddeea1, type: 2}
   audioSource: {fileID: 2975493223301096940}
---- !u!114 &5100891087575742596
-MonoBehaviour:
+--- !u!70 &8634444232663985465
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4536725149072549822}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee433729a90bc549b2d92a0da97836d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftWallCheck: {fileID: 1414579443241766424}
-  leftWallCheckUp: {fileID: 3794563197150744857}
-  rightWallCheck: {fileID: 8676556778608363497}
-  rightWallCheckUp: {fileID: 1118073823012611965}
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 0c7fe0f24de1e1c469e0f44250539821, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0056879073, y: -0.018626465}
+  m_Size: {x: 0.1658832, y: 0.27509192}
+  m_Direction: 0
 --- !u!1 &5399340458280243727
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,39 +686,8 @@ Transform:
   m_GameObject: {fileID: 5399340458280243727}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.013, y: -0.134, z: 0}
+  m_LocalPosition: {x: -0.009, y: -0.147, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7841925043301926699}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6921302435319460207
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3794563197150744857}
-  m_Layer: 0
-  m_Name: LeftWallCheackUp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3794563197150744857
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6921302435319460207}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.085, y: 0.123, z: -0.24150838}
-  m_LocalScale: {x: 0.84119856, y: 0.84119856, z: 0.84119856}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7841925043301926699}

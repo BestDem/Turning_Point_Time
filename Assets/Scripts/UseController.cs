@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 public class UseController : MonoBehaviour
 {
     [SerializeField] private SoundManager soundManager;
-    [SerializeField] private AnimatorBullet animatorBullet;
+    [SerializeField] private AnimatorObjects animatorBullet;
     [SerializeField] private PlayerUpheaval playerUpheaval;
 
     private void Update()
